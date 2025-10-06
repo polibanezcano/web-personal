@@ -1,0 +1,217 @@
+:root {
+  --bg: #f5f7fb;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --primary: #2c66ff;
+  --accent: #ff7a59;
+  --text: #1f2533;
+  --muted: #6c7280;
+  --border: rgba(31, 37, 51, 0.15);
+  --shadow: 0 18px 38px rgba(29, 38, 75, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top, #e5edff 0%, var(--bg) 55%, #f8f9ff 100%);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+header,
+main,
+footer {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 2vw + 1rem, 3rem);
+}
+
+header {
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+}
+
+header h1 {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+header p {
+  max-width: 55ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+header .hero-avatar {
+  width: clamp(120px, 18vw, 180px);
+  height: clamp(120px, 18vw, 180px);
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: 0 12px 28px rgba(44, 102, 255, 0.25);
+  background-color: #fff;
+}
+
+.profile_imgs img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+main {
+  display: grid;
+  gap: clamp(1.5rem, 2vw, 2.5rem);
+  margin-block: clamp(2rem, 3vw, 4rem);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: clamp(1.6rem, 2vw, 2.4rem);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 44px rgba(32, 56, 117, 0.2);
+}
+
+.card h2 {
+  font-size: 1.55rem;
+  margin-bottom: 0.85rem;
+  color: var(--primary);
+}
+
+.card p {
+  color: var(--text);
+  margin-bottom: 0.85rem;
+}
+
+.card ul {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.card ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--text);
+}
+
+.card ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 0 0 4px rgba(44, 102, 255, 0.18);
+}
+
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.avatar-card {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.avatar-card img {
+  width: clamp(160px, 22vw, 220px);
+  max-width: 100%;
+  border-radius: 26px;
+  box-shadow: 0 16px 36px rgba(44, 102, 255, 0.25);
+  border: 5px solid #fff;
+  object-fit: cover;
+  background-color: #fff;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  header {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    text-align: left;
+    gap: 2rem;
+  }
+
+  header .hero-avatar {
+    justify-self: center;
+  }
+
+  main {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .about,
+  .projects {
+    grid-column: span 6;
+  }
+
+  .contact,
+  .avatar-card {
+    grid-column: span 12;
+  }
+
+  .avatar-card {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  .avatar-card img {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 420px) {
+  header,
+  main,
+  footer {
+    padding: 1.25rem;
+  }
+
+  header .hero-avatar {
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
+  }
+}
